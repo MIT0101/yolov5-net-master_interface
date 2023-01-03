@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Text;
 using Yolov5Net.Scorer;
 using Yolov5Net.Scorer.Models;
 
@@ -40,6 +41,22 @@ namespace Yolov5Net.App
 
             //image.Save("C:\\Users\\M_IT_01\\Desktop\\result2.jpg");
             resultImage = new Bitmap(image);
+        }
+
+        public static string getAllLabels() { 
+        
+        StringBuilder stringBuilder = new StringBuilder();
+
+            YoloCocoP5Model supportedObjects = new YoloCocoP5Model();
+
+            foreach (YoloLabel item in supportedObjects.Labels)
+            {
+
+                stringBuilder.Append($"{item.Id}-{item.Name}"+Environment.NewLine);
+
+            }
+
+            return stringBuilder.ToString();
         }
 
         static void Main(string[] args)

@@ -58,5 +58,15 @@ namespace TEST_Object_Detection
          
        
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            richTextBox1.Text = Yolov5Net.App.Program.getAllLabels();
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
